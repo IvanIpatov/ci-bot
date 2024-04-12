@@ -75,4 +75,27 @@ bundle exec fastlane uploadAsync schemes:"$targetsString" externalGroup:"$extern
 fi
 ```
 # Run
-The launch is carried out through the Xcode development environment or through the terminal with the `swift run` command from the ci-bot folder
+- The launch is carried out through the Xcode development environment or through the terminal with the `swift run` command from the ci-bot folder
+- After launching the project on the build machine, run the `/start` command in the Telegram bot
+- Configuration files, settings, and a list of users are created in the `Documents` folder.
+- To use the bot, you need to allow access to the build machine
+- To allow access to the Telegram bot, you need to change the value of the `isAvailable` parameter from `false` to `true` for the desired user in the `users.json` file
+- After you allow the user to use the Telegram bot, the following commands will be available to you:
+```
+/help, /start - see the list of commands
+/setconfig - change the current config
+/getconfig - display the current config
+
+# Commands for interacting with git
+/gitcheckout - switch to a branch
+/gitfetch - fetch commits
+/gitpull - pull commits
+/gitdiscardall - discard all changes
+/gitstatus - check status
+
+# Commands for interacting with project processes:
+/upload - archive builds in testflight
+/cancel - cancel the current process
+/status - get the status of the current process
+/terminalcommand - execute any command in the terminal
+```
